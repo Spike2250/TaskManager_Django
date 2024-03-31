@@ -19,7 +19,8 @@ class UsersView(ListView):
     template_name = 'users/users.html'
 
 
-class UserLoginView(SuccessMessageMixin, LoginView):
+class UserLoginView(SuccessMessageMixin,
+                    LoginView):
     form_class = LoginForm
     template_name = 'users/login.html'
     success_message = _('You are logged in')
@@ -28,7 +29,8 @@ class UserLoginView(SuccessMessageMixin, LoginView):
         return reverse_lazy('home')
 
 
-class UserLogoutView(SuccessMessageMixin, LogoutView):
+class UserLogoutView(SuccessMessageMixin,
+                     LogoutView):
     template_name = 'index.html'
 
     def dispatch(self, request, *args, **kwargs):
@@ -39,15 +41,18 @@ class UserLogoutView(SuccessMessageMixin, LogoutView):
         return reverse_lazy('home')
 
 
-class UserCreateView(SuccessMessageMixin, CreateView):
+class UserCreateView(SuccessMessageMixin,
+                     CreateView):
     form_class = UserCreateForm
     template_name = 'users/create.html'
     success_url = reverse_lazy('login')
     success_message = _('User is successfully registered')
 
 
-class UserUpdateView(AuthorizationCheckMixin, UserPermissionsMixin,
-                     SuccessMessageMixin, UpdateView):
+class UserUpdateView(AuthorizationCheckMixin,
+                     UserPermissionsMixin,
+                     SuccessMessageMixin,
+                     UpdateView):
     model = User
     form_class = UserUpdateForm
     template_name = 'users/update.html'
@@ -55,8 +60,10 @@ class UserUpdateView(AuthorizationCheckMixin, UserPermissionsMixin,
     success_message = _('User is successfully updated')
 
 
-class UserDeleteView(AuthorizationCheckMixin, UserPermissionsMixin,
-                     SuccessMessageMixin, DeleteView):
+class UserDeleteView(AuthorizationCheckMixin,
+                     UserPermissionsMixin,
+                     SuccessMessageMixin,
+                     DeleteView):
     model = User
     template_name = 'users/delete.html'
     success_url = reverse_lazy('users')

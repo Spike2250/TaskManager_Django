@@ -1,7 +1,7 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
 
-<nav class="navbar navbar-dark navbar-expand-lg mb-3" data-bs-theme="dark">
+<nav class="navbar navbar-dark navbar-expand-lg mb-3" style="background-color: #2a2f47; padding-left: 4em;" data-bs-theme="dark">
     <a class="navbar-brand text-white" href="{% url 'home' %}">{% trans 'Task manager' %}</a>
     <button class="navbar-toggler" data-bs-toggle="offcanvas" data-toggle="collapse" data-target="#navbarToggleExternalContent">
         <span class="navbar-toggler-icon"></span>
@@ -13,7 +13,7 @@
             </li>
             {% if request.user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link text-light-emphasis" href="#">{% trans 'Statuses' %}</a>
+                <a class="nav-link text-light-emphasis" href="{% url 'statuses' %}">{% trans 'Statuses' %}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-light-emphasis" href="#">{% trans 'Labels' %}</a>
@@ -24,8 +24,11 @@
             {% endif %}
         </ul>
 
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" style="padding-left: 10em;">
             {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <p class="nav-link disabled text-light-emphasis user-select-none my-0">{% trans 'Current user: '%}</p>
+                </li>
                 <li class="nav-item">
                     <p class="nav-link text-info user-select-none my-0">{{ user.username }}</p>
                 </li>
