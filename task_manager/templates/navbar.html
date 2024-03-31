@@ -1,5 +1,46 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
-<nav>
 
+<nav class="navbar navbar-dark navbar-expand-lg mb-3" data-bs-theme="dark">
+    <a class="navbar-brand text-white" href="{% url 'home' %}">{% trans 'Task manager' %}</a>
+    <button class="navbar-toggler" data-bs-toggle="offcanvas" data-toggle="collapse" data-target="#navbarToggleExternalContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link text-light-emphasis" href="{% url 'users' %}">{% trans 'Users' %}</a>
+            </li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link text-light-emphasis" href="#">{% trans 'Statuses' %}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light-emphasis" href="#">{% trans 'Labels' %}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light-emphasis" href="#">{% trans 'Tasks' %}</a>
+            </li>
+            {% endif %}
+        </ul>
+
+        <ul class="navbar-nav">
+            {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <p class="nav-link text-info user-select-none my-0">{{ user.username }}</p>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light-emphasis" href="{% url 'logout' %}">{% trans 'Sign out' %}</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link text-light-emphasis" href="{% url 'login' %}">{% trans 'Sign in' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light-emphasis" href="{% url 'users_create' %}">{% trans 'Sign up' %}</a>
+                </li>
+            {% endif %}
+        </ul>
+
+    </div>
 </nav>

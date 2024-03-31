@@ -12,6 +12,15 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
+SECRET_KEY = os.getenv('SECRET_KEY')
+DATABASE_URL = os.getenv('DATABASE_URL')
+ON_RENDER = os.getenv('ON_RENDER', False)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,9 +28,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9p-_l0q!17*!34m9wyh*nj2#35*s24d&l-ww$0pygi#c9vd%l!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -45,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_bootstrap5',
     'task_manager',
+    'task_manager.users'
 ]
 
 MIDDLEWARE = [
@@ -78,9 +85,28 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'task_manager.wsgi.application'
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.onrender.com'
+]
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
+
+if ON_RENDER:
+    DATABASE = dj_database_url.config(
+        default=DATABASE_URL,
+        conn_max_age=1800
+    )
+else:
+    DATABASE = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+
+DATABASES = {'default': DATABASE}
+
+
 
 DATABASES = {
     'default': {

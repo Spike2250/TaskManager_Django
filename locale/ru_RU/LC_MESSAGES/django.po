@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-31 15:30+0500\n"
+"POT-Creation-Date: 2024-03-31 19:58+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,9 +17,124 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\task_manager\templates\base.html:11
+#: .\task_manager\templates\base.html:11 .\task_manager\templates\navbar.html:5
 msgid "Task manager"
 msgstr "Менеджер задач"
+
+#: .\task_manager\templates\delete.html:16
+msgid "Are you sure you want to delete "
+msgstr "Вы уверены, что хотите удалить "
+
+#: .\task_manager\templates\delete.html:22
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: .\task_manager\templates\navbar.html:12
+#: .\task_manager\templates\users\users.html:9
+msgid "Users"
+msgstr "Пользователи"
+
+#: .\task_manager\templates\navbar.html:16
+msgid "Statuses"
+msgstr ""
+
+#: .\task_manager\templates\navbar.html:19
+msgid "Labels"
+msgstr ""
+
+#: .\task_manager\templates\navbar.html:22
+msgid "Tasks"
+msgstr "Задачи"
+
+#: .\task_manager\templates\navbar.html:33
+msgid "Sign out"
+msgstr "Выйти"
+
+#: .\task_manager\templates\navbar.html:37
+#: .\task_manager\templates\users\login.html:6
+msgid "Sign in"
+msgstr "Войти"
+
+#: .\task_manager\templates\navbar.html:40
+#: .\task_manager\templates\users\create.html:6
+msgid "Sign up"
+msgstr "Регистрация"
+
+#: .\task_manager\templates\users\create.html:9
+msgid "Register"
+msgstr "Регистрация"
+
+#: .\task_manager\templates\users\delete.html:6
+msgid "Delete user"
+msgstr "Удаление пользователя"
+
+#: .\task_manager\templates\users\login.html:9
+msgid "Enter"
+msgstr "Войти"
+
+#: .\task_manager\templates\users\update.html:6
+msgid "Update user"
+msgstr "Изменение данных пользователя"
+
+#: .\task_manager\templates\users\update.html:9
+msgid "Update"
+msgstr "Изменить"
+
+#: .\task_manager\templates\users\users.html:14
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: .\task_manager\templates\users\users.html:15
+msgid "Full name"
+msgstr "Полное имя"
+
+#: .\task_manager\templates\users\users.html:16
+msgid "Created at"
+msgstr "Дата создания"
+
+#: .\task_manager\templates\users\users.html:28
+msgid "Edit"
+msgstr "Изменить"
+
+#: .\task_manager\templates\users\users.html:30
+msgid "Delete"
+msgstr "Удалить"
+
+#: .\task_manager\users\forms.py:26
+msgid "Password"
+msgstr "Пароль"
+
+#: .\task_manager\users\forms.py:30
+msgid "Confirm password"
+msgstr "Подтвердите пароль"
+
+#: .\task_manager\users\views.py:25
+msgid "You are logged in"
+msgstr "Вы авторизовались"
+
+#: .\task_manager\users\views.py:35
+msgid "You are logged out"
+msgstr "Вы вышли"
+
+#: .\task_manager\users\views.py:46
+msgid "User is successfully registered"
+msgstr "Пользователь успешно зарегистрирован"
+
+#: .\task_manager\users\views.py:55
+msgid "User is successfully updated"
+msgstr "Данные пользователя успешно обновлены"
+
+#: .\task_manager\users\views.py:63
+msgid "User successfully deleted"
+msgstr "Пользователь успешно удален"
+
+#: .\task_manager\utils.py:17
+msgid "You are not logged in! Please log in."
+msgstr "Вы не авторизованы! Пожалуйста, войдите."
+
+#: .\task_manager\utils.py:43
+msgid "You have no rights to change another user."
+msgstr "У Вас нет прав для изменения другого пользователя"
 
 #: .\task_manager\views.py:8
 msgid "Some text to test translations"
