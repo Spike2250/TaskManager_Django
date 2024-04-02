@@ -12,14 +12,12 @@ from .forms import TaskForm
 from .models import Task
 
 
-class TaskView(AuthorizationCheckMixin,
-               DetailView):
+class TaskView(AuthorizationCheckMixin, DetailView):
     model = Task
     template_name = 'tasks/task.html'
 
 
-class TasksView(AuthorizationCheckMixin,
-                FilterView):
+class TasksView(AuthorizationCheckMixin, FilterView):
     model = Task
     filterset_class = TaskFilter
     context_object_name = 'tasks'
@@ -27,8 +25,7 @@ class TasksView(AuthorizationCheckMixin,
 
 
 class TaskCreateView(AuthorizationCheckMixin,
-                     SuccessMessageMixin,
-                     CreateView):
+                     SuccessMessageMixin, CreateView):
     form_class = TaskForm
     template_name = 'tasks/create.html'
     success_url = reverse_lazy('tasks')
@@ -41,8 +38,7 @@ class TaskCreateView(AuthorizationCheckMixin,
 
 
 class TaskUpdateView(AuthorizationCheckMixin,
-                     SuccessMessageMixin,
-                     UpdateView):
+                     SuccessMessageMixin, UpdateView):
     model = Task
     form_class = TaskForm
     template_name = 'tasks/update.html'
@@ -50,10 +46,8 @@ class TaskUpdateView(AuthorizationCheckMixin,
     success_message = _('Task successfully updated')
 
 
-class TaskDeleteView(AuthorizationCheckMixin,
-                     TaskPermissionsMixin,
-                     SuccessMessageMixin,
-                     DeleteView):
+class TaskDeleteView(AuthorizationCheckMixin, TaskPermissionsMixin,
+                     SuccessMessageMixin, DeleteView):
     model = Task
     template_name = 'tasks/delete.html'
     success_url = reverse_lazy('tasks')

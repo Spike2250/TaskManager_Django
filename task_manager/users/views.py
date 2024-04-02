@@ -4,10 +4,10 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.urls import reverse_lazy
-# from django.shortcuts import redirect
+from django.shortcuts import redirect
 
 from task_manager.utils import AuthorizationCheckMixin, UserPermissionsMixin
-# from task_manager.tasks.models import Task
+from task_manager.tasks.models import Task
 
 from .forms import UserCreateForm, UserUpdateForm, LoginForm
 from .models import User
@@ -71,12 +71,12 @@ class UserDeleteView(AuthorizationCheckMixin,
 
     def form_valid(self, form):
         user_id = self.request.user.pk
-        # user_tasks = Task.objects.filter(author=user_id)
-        #
-        # if user_tasks:
-        #     messages.error(
-        #         self.request,
-        #         _('Cannot delete a user because he is being used')
-        #     )
-        #     return redirect('users')
+        user_tasks = Task.objects.filter(author=user_id)
+
+        if user_tasks:
+            messages.error(
+                self.request,
+                _('Cannot delete a user because he is being used')
+            )
+            return redirect('users')
         return super().form_valid(form)

@@ -1,12 +1,12 @@
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
-# from django.contrib import messages
+from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.urls import reverse_lazy
-# from django.shortcuts import redirect
+from django.shortcuts import redirect
 
 from task_manager.utils import AuthorizationCheckMixin
-# from task_manager.tasks.models import Task
+from task_manager.tasks.models import Task
 
 from .models import Status
 from .forms import StatusForm
@@ -48,13 +48,13 @@ class StatusDeleteView(AuthorizationCheckMixin,
 
     def post(self, request, *args, **kwargs):
         status_id = kwargs['pk']
-        # tasks_with_status = Task.objects.filter(status=status_id)
-        #
-        # if tasks_with_status:
-        #     messages.error(
-        #         self.request,
-        #         _('It is not possible to delete a status '
-        #           'because it is in use')
-        #     )
-        #     return redirect('statuses')
+        tasks_with_status = Task.objects.filter(status=status_id)
+
+        if tasks_with_status:
+            messages.error(
+                self.request,
+                _('It is not possible to delete a status '
+                  'because it is in use')
+            )
+            return redirect('statuses')
         return super().post(request, *args, **kwargs)

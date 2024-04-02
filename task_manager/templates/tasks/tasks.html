@@ -38,16 +38,16 @@
             <tbody>
             {% for task in tasks %}
                 <tr class="bg-dark text-light">
-                    <td>{{ task.id }}</td>
-                    <td><a href="{% url 'task' task.id %}">{{ task.name }}</a></td>
-                    <td>{{ task.status }}</td>
-                    <td>{{ task.author }}</td>
-                    <td>{% if task.executor %}{{ task.executor }}{% endif %}</td>
-                    <td>{{ task.created_at|date:"d.m.Y " }}<br>{{ task.created_at|date:"H:i" }}</td>
-                    <td>
-                        <a href="{% url 'task_update' task.pk %}">{% trans 'Edit' %}</a>
+                    <td class="text-light">{{ task.id }}</td>
+                    <td class="text-light"><a class="link-primary" href="{% url 'task' task.id %}">{{ task.name }}</a></td>
+                    <td class="text-light">{{ task.status }}</td>
+                    <td class="text-light">{{ task.author }}</td>
+                    <td class="text-light">{% if task.executor %}{{ task.executor }}{% endif %}</td>
+                    <td class="text-light">{{ task.created_at|date:"d.m.Y " }}<br>{{ task.created_at|date:"H:i" }}</td>
+                    <td class="text-light">
+                        <a class="link-secondary" href="{% url 'task_update' task.pk %}">{% trans 'Edit' %}</a>
                         <br>
-                        <a href="{% url 'task_delete' task.pk %}">{% trans 'Delete' %}</a>
+                        <a class="link-danger" href="{% url 'task_delete' task.pk %}">{% trans 'Delete' %}</a>
                     </td>
                 </tr>
             {% endfor %}

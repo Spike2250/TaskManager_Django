@@ -3,6 +3,7 @@ from django.utils.translation import gettext as _
 from django.forms import CheckboxInput, Select
 
 from task_manager.statuses.models import Status
+from task_manager.labels.models import Label
 from task_manager.users.models import User
 
 from .models import Task
@@ -22,6 +23,11 @@ class TaskFilter(FilterSet):
         queryset=User.objects.all(),
         widget=WIDGET,
     )
+    labels = ModelChoiceFilter(
+        label=_('Label'),
+        queryset=Label.objects.all(),
+        widget=WIDGET,
+    )
     only_mine_tasks = BooleanFilter(
         label=_('Only my tasks'),
         method='get_my_tasks',
@@ -30,7 +36,7 @@ class TaskFilter(FilterSet):
 
     class Meta:
         model = Task
-        fields = ['status', 'executor']
+        fields = ['status', 'executor', 'labels']
 
     def get_my_tasks(self, queryset, _, value):
         if value:

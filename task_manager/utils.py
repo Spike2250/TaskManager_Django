@@ -14,8 +14,7 @@ from task_manager.tasks.models import Task
 class AuthorizationCheckMixin(LoginRequiredMixin):
     """
     Checks permissions to the pages.
-    If user isn't logged in, redirects
-    to the login page.
+    If user isn't logged in, redirects to the login page.
     """
 
     login_url = reverse_lazy('login')
@@ -53,8 +52,7 @@ class UserPermissionsMixin(UserPassesTestMixin):
 class TaskPermissionsMixin(UserPassesTestMixin):
     """
     Checks permissions to task deleting.
-    If the user is not the author of the task,
-    task will not be deleted.
+    If the user is not the author of the task, task will not be deleted.
     """
 
     def test_func(self):

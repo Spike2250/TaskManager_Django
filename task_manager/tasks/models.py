@@ -2,27 +2,38 @@ from django.utils.translation import gettext as _
 from django.db import models
 
 from task_manager.users.models import User
+from task_manager.labels.models import Label
 from task_manager.statuses.models import Status
 
 
 class Task(models.Model):
     name = models.CharField(
-        max_length=255, verbose_name=_('Name'),
-        unique=True, blank=False,
+        max_length=255, unique=True, blank=False,
+        verbose_name=_('Name'),
     )
     description = models.TextField(
-        blank=True, verbose_name=_('Description'),
+        blank=True,
+        verbose_name=_('Description'),
     )
     author = models.ForeignKey(
-        User, related_name='author', verbose_name=_('Author'),
-        blank=False, on_delete=models.PROTECT,
+        User, blank=False, on_delete=models.PROTECT,
+        related_name='author',
+        verbose_name=_('Author'),
     )
     executor = models.ForeignKey(
-        User, related_name='executor', verbose_name=_('Executor'),
-        null=True, blank=True, default='', on_delete=models.PROTECT,
+        User, null=True, blank=True, default='', on_delete=models.PROTECT,
+        related_name='executor',
+        verbose_name=_('Executor'),
     )
     status = models.ForeignKey(
-        Status, related_name='status', verbose_name=_('Status'),
-        blank=False, on_delete=models.PROTECT,
+        Status, blank=False, on_delete=models.PROTECT,
+        related_name='status',
+        verbose_name=_('Status'),
+    )
+    labels = models.ManyToManyField(
+        Label, blank=True,
+        related_name='labels',
+        verbose_name=_('Labels'),
+
     )
     created_at = models.DateTimeField(auto_now_add=True)
