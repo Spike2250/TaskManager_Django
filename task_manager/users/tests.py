@@ -6,7 +6,11 @@ from task_manager.users.models import User
 
 from datetime import datetime
 
-
+@modify_settings(
+    MIDDLEWARE={'remove': [
+        'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
+    ]}
+)
 class SetUpTestCase(TestCase):
     def setUp(self):
         self.user = User.objects.create(
@@ -39,7 +43,7 @@ class UserCreateTestCase(SetUpTestCase):
             reverse_lazy('users_create'),
             {'first_name': 'Anakin',
              'last_name': 'Skywalker',
-             'username': 'red_saber_is_good',
+             'username': 'redsaber',
              'password1': 'q1w2e3r4t5',
              'password2': 'q1w2e3r4t5'}
         )

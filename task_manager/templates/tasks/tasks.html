@@ -10,14 +10,14 @@
             <h1 class="flex-grow-1">{% trans 'Tasks' %}</h1>
             {% trans 'Create task' as create_btn %}
             {% url 'task_create' as create_url %}
-            {% bootstrap_button create_btn button_class="btn btn-outline-primary align-self-center" href=create_url %}
+            {% bootstrap_button create_btn button_class="btn btn-outline-warning align-self-center" href=create_url %}
         </div>
 
         <div class="card mb-3 border-secondary mb-3">
             <div class="card-body bg-dark">
                 <form class="form-inline center" method="get">
                     {% trans 'Show' as filter_btn %}
-                    {% bootstrap_form filter.form field_class="mx-4" %}
+                    {% bootstrap_form filter.form field_class="mx-1" %}
                     {% bootstrap_button filter_btn button_type="submit" button_class="btn btn-outline-primary" %}
                 </form>
             </div>

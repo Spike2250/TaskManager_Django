@@ -25,7 +25,7 @@
                 <td class="text-light">{{ user.get_fullname }}</td>
                 <td class="text-light">{{ user.created_at|date:"d.m.Y " }}<br>{{ user.created_at|date:"H:i" }}</td>
                 <td class="text-light">
-                    <a class="link-info" href="{% url 'users_update' user.id %}">{% trans 'Edit' %}</a>
+                    <a class="link-secondary" href="{% url 'users_update' user.id %}">{% trans 'Edit' %}</a>
                     <br>
                     <a class="link-danger" href="{% url 'users_delete' user.id %}">{% trans 'Delete' %}</a>
                 </td>

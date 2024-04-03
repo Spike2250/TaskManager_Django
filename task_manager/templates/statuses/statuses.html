@@ -10,7 +10,7 @@
             <h1 class="flex-grow-1">{% trans 'Statuses' %}</h1>
             {% trans 'Create status' as create_btn %}
             {% url 'status_create' as create_url %}
-            {% bootstrap_button create_btn button_class="btn btn-outline-primary align-self-center" href=create_url %}
+            {% bootstrap_button create_btn button_class="btn btn-outline-warning align-self-center" href=create_url %}
         </div>
         <table class="table table-striped">
             <thead>
@@ -28,7 +28,7 @@
                 <td class="text-light">{{ status.name }}</td>
                 <td class="text-light">{{ status.created_at|date:"d.m.Y " }}<br>{{ status.created_at|date:"H:i" }}</td>
                 <td>
-                    <a class="link-info" href="{% url 'status_update' status.id %}">{% trans 'Edit' %}</a>
+                    <a class="link-secondary" href="{% url 'status_update' status.id %}">{% trans 'Edit' %}</a>
                     <br>
                     <a class="link-danger" href="{% url 'status_delete' status.id %}">{% trans 'Delete' %}</a>
                 </td>

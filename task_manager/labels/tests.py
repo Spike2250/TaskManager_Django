@@ -6,7 +6,11 @@ from task_manager.users.models import User
 
 from .models import Label
 
-
+@modify_settings(
+    MIDDLEWARE={'remove': [
+        'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
+    ]}
+)
 class SetUpTestCase(TestCase):
     def setUp(self):
         self.user = User.objects.create(
