@@ -41,8 +41,8 @@ class UserCreateTestCase(SetUpTestCase):
     def test_user_registration_success(self):
         response = self.client.post(
             reverse_lazy('users_create'),
-            {'first_name': 'Anakin',
-             'last_name': 'Skywalker',
+            {'first_name': 'Anakin222',
+             'last_name': 'Skywalker333',
              'username': 'redsaber',
              'password1': 'q1w2e3r4t5',
              'password2': 'q1w2e3r4t5'}
