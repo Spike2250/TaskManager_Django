@@ -42,11 +42,11 @@ class UserCreateTestCase(SetUpTestCase):
     def test_user_registration_success(self):
         response = self.client.post(
             reverse_lazy('users_create'),
-            {'first_name': 'Anakin222',
-             'last_name': 'Skywalker333',
+            {'first_name': 'Anakin',
+             'last_name': 'Skywalker',
              'username': 'redsaber',
-             'password1': 'q1w2e3r4t5',
-             'password2': 'q1w2e3r4t5'}
+             'password1': '904321qwerty',
+             'password2': '904321qwerty'}
         )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('login'))
