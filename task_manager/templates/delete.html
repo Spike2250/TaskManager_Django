@@ -14,7 +14,7 @@
                     </p>
                     <p class="lead mx-auto mb-1 w-50">
                         {% trans 'Are you sure you want to delete ' %}
-                        {% block content %}{% endblock %}?
+                        "{% block content %}{% endblock %}"?
                     </p>
                     <form method="post">
                         {% csrf_token %}

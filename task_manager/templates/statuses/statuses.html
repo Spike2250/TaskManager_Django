@@ -8,9 +8,11 @@
     <div class="container wrapper flex-grow-1 mt-5 bg-dark text-light">
         <div class="d-flex my-3">
             <h1 class="flex-grow-1">{% trans 'Statuses' %}</h1>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
             {% trans 'Create status' as create_btn %}
             {% url 'status_create' as create_url %}
-            {% bootstrap_button create_btn button_class="btn btn-outline-warning align-self-center" href=create_url %}
+            {% bootstrap_button create_btn button_class="btn btn-outline-warning" href=create_url %}
         </div>
         <table class="table table-striped">
             <thead>

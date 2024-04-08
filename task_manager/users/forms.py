@@ -11,11 +11,11 @@ class UserCreateForm(UserCreationForm):
     class Meta:
         model = User
         fields = [
-            'first_name',
-            'last_name',
-            'username',
-            'password1',
-            'password2',
+            _('first_name'),
+            _('last_name'),
+            _('username'),
+            _('password1'),
+            _('password2'),
         ]
 
 
@@ -34,9 +34,9 @@ class UserUpdateForm(UserChangeForm):
     class Meta:
         model = User
         fields = [
-            'first_name',
-            'last_name',
-            'username',
+            _('first_name'),
+            _('last_name'),
+            _('username'),
         ]
 
 
@@ -44,5 +44,5 @@ class LoginForm(AuthenticationForm):
     class Meta:
         model = User
         fields = [
-            'username', 'password1',
+            _('username'), _('password1'),
         ]
