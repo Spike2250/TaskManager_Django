@@ -20,3 +20,6 @@ test:
 test-coverage:
 	poetry run coverage run manage.py test
 	poetry run coverage xml --include=task_manager/* --omit=task_manager/settings.py
+
+lint:
+	flake8 task_manager

@@ -6,6 +6,7 @@ from task_manager.users.models import User
 
 from datetime import datetime
 
+
 @modify_settings(
     MIDDLEWARE={'remove': [
         'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',

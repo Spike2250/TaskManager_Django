@@ -20,7 +20,6 @@ from django.urls import path, include
 from task_manager.users.views import UserLoginView, UserLogoutView
 from task_manager.views import IndexView
 
-from . import views
 
 urlpatterns = [
     path('', IndexView.as_view(), name='home'),

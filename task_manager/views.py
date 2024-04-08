@@ -1,8 +1,5 @@
-from django.views import View
-from django.shortcuts import render
-from django.utils.translation import gettext as _
+from django.views.generic.base import TemplateView
 
 
-class IndexView(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'index.html', context={'text': _('Some text to test translations')})
+class IndexView(TemplateView):
+    template_name = 'index.html'
