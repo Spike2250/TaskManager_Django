@@ -29,7 +29,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
+DEBUG = True if DEBUG and DEBUG != '0' else False
 
 ROLLBAR_ACCESS_TOKEN = os.getenv("ROLLBAR_ACCESS_TOKEN")
 ROLLBAR = {
@@ -42,6 +43,7 @@ ROLLBAR = {
 ALLOWED_HOSTS = [
     'webserver',
     '127.0.0.1',
+    '0.0.0.0',
     'localhost',
     '.onrender.com'
 ]
