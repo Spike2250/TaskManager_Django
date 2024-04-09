@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'task_manager.statuses',
     'task_manager.tasks',
     'task_manager.labels',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -124,7 +125,6 @@ DATABASES = {'default': DATABASE}
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 valid = 'django.contrib.auth.password_validation'
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': f'{valid}.UserAttributeSimilarityValidator',
