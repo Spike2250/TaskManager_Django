@@ -35,7 +35,7 @@ class TaskCreateView(AuthorizationCheckMixin,
     success_message = _('Task successfully created')
 
     def form_valid(self, form):
-        current_user = self.request.user.user
+        current_user = self.request.user
         form.instance.author = current_user
         return super().form_valid(form)
 
