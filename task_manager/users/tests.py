@@ -45,8 +45,8 @@ class UserCreateTestCase(SetUpTestCase):
             {'first_name': 'Anakin',
              'last_name': 'Skywalker',
              'username': 'redsaber',
-             'password1': '904321qwerty',
-             'password2': '904321qwerty'}
+             'password1': '456123987qwerty',
+             'password2': '456123987qwerty'}
         )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('login'))
