@@ -34,6 +34,5 @@ class Task(models.Model):
         Label, blank=True,
         related_name='labels',
         verbose_name=_('Labels'),
-
     )
     created_at = models.DateTimeField(auto_now_add=True)

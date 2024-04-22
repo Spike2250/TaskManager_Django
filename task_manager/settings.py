@@ -110,12 +110,14 @@ CSRF_TRUSTED_ORIGINS = [
 if ON_RENDER:
     DATABASE = dj_database_url.config(
         default=DATABASE_URL,
-        conn_max_age=1800
+        conn_max_age=600
     )
 else:
     DATABASE = {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        "default": dj_database_url.parse(
+            f"sqlite:///{BASE_DIR / 'db.sqlite3'}"
+        ),
+        "conn_max_age": 600
     }
 
 DATABASES = {'default': DATABASE}
