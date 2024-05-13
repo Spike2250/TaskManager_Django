@@ -11,7 +11,7 @@ from task_manager.utils import AuthorizationCheckMixin, UserPermissionsMixin
 from task_manager.tasks.models import Task
 
 from .forms import UserCreateForm, UserUpdateForm, LoginForm
-from .models import User
+# from .models import User
 
 
 class UsersView(ListView):
