@@ -1,4 +1,3 @@
-from django.utils.translation import gettext as _
 from django.db import models
 
 from task_manager.users.models import User
@@ -9,30 +8,30 @@ from task_manager.statuses.models import Status
 class Task(models.Model):
     name = models.CharField(
         max_length=255, unique=True, blank=False,
-        verbose_name=_('Name'),
+        verbose_name='Name',
     )
     description = models.TextField(
         blank=True,
-        verbose_name=_('Description'),
+        verbose_name='Description',
     )
     author = models.ForeignKey(
         User, blank=False, on_delete=models.PROTECT,
         related_name='author',
-        verbose_name=_('Author'),
+        verbose_name='Author',
     )
     executor = models.ForeignKey(
         User, null=True, blank=True, default='', on_delete=models.PROTECT,
         related_name='executor',
-        verbose_name=_('Executor'),
+        verbose_name='Executor',
     )
     status = models.ForeignKey(
         Status, blank=False, on_delete=models.PROTECT,
         related_name='status',
-        verbose_name=_('Status'),
+        verbose_name='Status',
     )
     labels = models.ManyToManyField(
         Label, blank=True,
         related_name='labels',
-        verbose_name=_('Labels'),
+        verbose_name='Labels',
     )
     created_at = models.DateTimeField(auto_now_add=True)
