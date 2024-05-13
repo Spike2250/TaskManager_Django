@@ -109,7 +109,7 @@ class StatusUpdateTestCase(SetUpTestCase):
         self.assertEqual(len(messages), 1)
         self.assertIn(str(messages[0]), [
             'Status successfully updated',
-            'Статус успешно изменён',
+            'Статус успешно изменен',
         ])
 
         updated_status = Status.objects.get(name='status_updated')
@@ -151,7 +151,7 @@ class StatusDeleteTestCase(SetUpTestCase):
         self.assertEqual(len(messages), 1)
         self.assertIn(str(messages[0]), [
             'Status successfully deleted',
-            'Статус успешно удалён',
+            'Статус успешно удален',
         ])
 
         with self.assertRaises(Status.DoesNotExist):
@@ -168,7 +168,7 @@ class StatusDeleteTestCase(SetUpTestCase):
         self.assertEqual(len(messages), 1)
         self.assertIn(str(messages[0]), [
             'It is not possible to delete a status because it is in use',
-            'Невозможно удалить статус, потому что он используется',
+            'Невозможно удалить статус, поскольку он используется',
         ])
 
     def test_status_delete_fail_not_logged_in(self):
