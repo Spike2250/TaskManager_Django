@@ -19,8 +19,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 SECRET_KEY = os.getenv('SECRET_KEY')
-DATABASE_URL = os.getenv('DATABASE_URL')
-ON_RENDER = os.getenv('ON_RENDER', False)
+# DATABASE_URL = os.getenv('DATABASE_URL')
+# ON_RENDER = os.getenv('ON_RENDER', False)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -60,8 +60,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_bootstrap5',
     'task_manager',
-    'task_manager.users.apps.UsersConfig',
-    # 'task_manager.users',
+    # 'task_manager.users.apps.UsersConfig',
+    'task_manager.users',
     'task_manager.statuses',
     'task_manager.tasks',
     'task_manager.labels',
@@ -108,14 +108,11 @@ CSRF_TRUSTED_ORIGINS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 
-if ON_RENDER:
-    DATABASE = dj_database_url.config(
-        default=DATABASE_URL,
-        conn_max_age=600
+DATABASES = {
+    "default": dj_database_url.parse(
+        os.getenv("DATABASE_URL", f"sqlite:///{BASE_DIR/'db.sqlite3'}")
     )
-else:
-    DATABASE = dj_database_url.parse(f"sqlite:///{BASE_DIR / 'db.sqlite3'}")
-DATABASES = {'default': DATABASE}
+}
 
 
 # Password validation
