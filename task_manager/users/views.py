@@ -1,5 +1,6 @@
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth import get_user_model
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import messages
 from django.utils.translation import gettext as _
@@ -14,7 +15,7 @@ from .models import User
 
 
 class UsersView(ListView):
-    model = User
+    model = get_user_model()
     context_object_name = 'users'
     template_name = 'users/users.html'
 
@@ -53,7 +54,7 @@ class UserUpdateView(AuthorizationCheckMixin,
                      UserPermissionsMixin,
                      SuccessMessageMixin,
                      UpdateView):
-    model = User
+    model = get_user_model()
     form_class = UserUpdateForm
     template_name = 'users/update.html'
     success_url = reverse_lazy('users')
@@ -64,7 +65,7 @@ class UserDeleteView(AuthorizationCheckMixin,
                      UserPermissionsMixin,
                      SuccessMessageMixin,
                      DeleteView):
-    model = User
+    model = get_user_model()
     template_name = 'users/delete.html'
     success_url = reverse_lazy('users')
     success_message = _('User successfully deleted')
