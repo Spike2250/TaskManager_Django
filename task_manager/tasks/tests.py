@@ -191,7 +191,7 @@ class TaskDeleteTestCase(SetUpTestCase):
         self.assertEqual(len(messages), 1)
         self.assertIn(str(messages[0]), [
             'The task can be deleted only by its author',
-            'Задачу может удалить только её автор',
+            'Задачу может удалить только ее автор',
         ])
 
     def test_task_delete_fail_task_not_exist(self):
