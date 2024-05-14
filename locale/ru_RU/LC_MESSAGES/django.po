@@ -266,7 +266,7 @@ msgstr "Вход"
 #: .\task_manager\templates\navbar.html:47
 #: .\task_manager\templates\users\create.html:6
 msgid "Sign up"
-msgstr "Зарегистрировать"
+msgstr "Регистрация"
 
 #: .\task_manager\templates\statuses\create.html:6
 #: .\task_manager\templates\statuses\statuses.html:13
