@@ -308,7 +308,7 @@ msgstr "Изменение задачи"
 
 #: .\task_manager\templates\users\create.html:10
 msgid "Register"
-msgstr "Регистрация"
+msgstr "Зарегистрировать"
 
 #: .\task_manager\templates\users\delete.html:6
 msgid "Delete user"
