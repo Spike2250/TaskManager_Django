@@ -179,7 +179,7 @@ class UserDeleteTestCase(SetUpTestCase):
         self.assertEqual(len(messages), 1)
         self.assertIn(str(messages[0]), [
             'User successfully deleted',
-            'Пользователь успешно удалён',
+            'Пользователь успешно удален',
         ])
 
     def test_user_delete_no_permission(self):
