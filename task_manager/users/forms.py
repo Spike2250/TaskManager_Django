@@ -2,6 +2,7 @@ from django.contrib.auth.forms import (
     UserCreationForm, AuthenticationForm, UserChangeForm
 )
 from django import forms
+from django.utils.translation import gettext as _
 
 from .models import User
 
@@ -22,11 +23,11 @@ class UserUpdateForm(UserChangeForm):
     password = None
 
     password1 = forms.CharField(
-        label='Password',
+        label=_('Password'),
         widget=forms.PasswordInput
     )
     password2 = forms.CharField(
-        label='Confirm password',
+        label=_('Confirm password'),
         widget=forms.PasswordInput
     )
 
