@@ -122,7 +122,7 @@ class UserUpdateTestCase(SetUpTestCase):
         self.assertEqual(len(messages), 1)
         self.assertIn(str(messages[0]), [
             'User is successfully updated',
-            'Пользователь успешно изменён',
+            'Пользователь успешно изменен',
         ])
 
     def test_user_update_no_permission(self):
