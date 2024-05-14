@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-14 13:47+0500\n"
+"POT-Creation-Date: 2024-05-14 21:45+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: .\task_manager\labels\models.py:8 .\task_manager\statuses\models.py:8
+#: .\task_manager\tasks\models.py:12
 #: .\task_manager\templates\labels\labels.html:21
 #: .\task_manager\templates\statuses\statuses.html:21
 #: .\task_manager\templates\tasks\tasks.html:34
@@ -56,13 +57,13 @@ msgstr "Статус успешно удален"
 msgid "It is not possible to delete a status because it is in use"
 msgstr "Невозможно удалить статус, поскольку он используется"
 
-#: .\task_manager\tasks\filters.py:17
+#: .\task_manager\tasks\filters.py:17 .\task_manager\tasks\models.py:31
 #: .\task_manager\templates\tasks\task.html:28
 #: .\task_manager\templates\tasks\tasks.html:35
 msgid "Status"
 msgstr "Статус"
 
-#: .\task_manager\tasks\filters.py:22
+#: .\task_manager\tasks\filters.py:22 .\task_manager\tasks\models.py:26
 #: .\task_manager\templates\tasks\task.html:24
 #: .\task_manager\templates\tasks\tasks.html:37
 msgid "Executor"
@@ -75,6 +76,22 @@ msgstr "Метка"
 #: .\task_manager\tasks\filters.py:32
 msgid "Only my tasks"
 msgstr "Только свои задачи"
+
+#: .\task_manager\tasks\models.py:16
+msgid "Description"
+msgstr "Описание"
+
+#: .\task_manager\tasks\models.py:21
+#: .\task_manager\templates\tasks\task.html:20
+#: .\task_manager\templates\tasks\tasks.html:36
+msgid "Author"
+msgstr "Автор"
+
+#: .\task_manager\tasks\models.py:36
+#: .\task_manager\templates\labels\labels.html:10
+#: .\task_manager\templates\navbar.html:19
+msgid "Labels"
+msgstr "Метки"
 
 #: .\task_manager\tasks\views.py:35
 msgid "Task successfully created"
@@ -151,11 +168,6 @@ msgstr "Создать"
 #: .\task_manager\templates\labels\delete.html:6
 msgid "Delete label"
 msgstr "Удалить метку"
-
-#: .\task_manager\templates\labels\labels.html:10
-#: .\task_manager\templates\navbar.html:19
-msgid "Labels"
-msgstr "Метки"
 
 #: .\task_manager\templates\labels\labels.html:22
 #: .\task_manager\templates\statuses\statuses.html:22
@@ -250,11 +262,6 @@ msgstr "Удаление задачи"
 #: .\task_manager\templates\tasks\task.html:9
 msgid "Task preview"
 msgstr "Просмотр задачи"
-
-#: .\task_manager\templates\tasks\task.html:20
-#: .\task_manager\templates\tasks\tasks.html:36
-msgid "Author"
-msgstr "Автор"
 
 #: .\task_manager\templates\tasks\task.html:37
 msgid "Lables:"
@@ -360,9 +367,6 @@ msgstr "Задачу может удалить только ее автор"
 #~| msgid "Labels"
 #~ msgid "labels"
 #~ msgstr "Метки"
-
-#~ msgid "Description"
-#~ msgstr "Описание"
 
 #~ msgid "first_name"
 #~ msgstr "Имя"
